@@ -1,7 +1,7 @@
 import {
-  browseLinks,
+  browseLinksInForeground,
   browseLinksInBackground,
-  browseMedia,
+  browseMediaInForeground,
   browseMediaInBackground,
   deleteTweet,
   downloadMedia,
@@ -12,9 +12,9 @@ import {
 } from "./twitter";
 
 const commandFunctionByName = {
-  browseLinks,
+  browseLinksInForeground,
   browseLinksInBackground,
-  browseMedia,
+  browseMediaInForeground,
   browseMediaInBackground,
   deleteTweet,
   downloadMedia,

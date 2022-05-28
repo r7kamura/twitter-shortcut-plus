@@ -7,8 +7,8 @@ export type Command = {
 const commands: Array<Command> = [
   {
     default: "alt+l",
-    description: "Browse links",
-    name: "browseLinks",
+    description: "Browse links in foreground",
+    name: "browseLinksInForeground",
   },
   {
     default: "u",
@@ -17,8 +17,8 @@ const commands: Array<Command> = [
   },
   {
     default: "alt+s",
-    description: "Browse media",
-    name: "browseMedia",
+    description: "Browse media in foreground",
+    name: "browseMediaInForeground",
   },
   {
     default: "i",

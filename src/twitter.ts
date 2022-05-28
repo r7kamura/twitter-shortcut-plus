@@ -1,7 +1,7 @@
 import { compact, unique } from "./array";
 import { openUrlInBackground, openUrlInForeground } from "./tab";
 
-export function browseLinks() {
+export function browseLinksInForeground() {
   findLinkUrls()
     .reverse()
     .forEach((url) => {
@@ -15,7 +15,7 @@ export function browseLinksInBackground() {
   });
 }
 
-export function browseMedia() {
+export function browseMediaInForeground() {
   findMediaUrls()
     .reverse()
     .forEach((url) => {

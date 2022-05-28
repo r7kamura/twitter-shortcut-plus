@@ -14,9 +14,9 @@ const categories = [
   {
     categoryName: "Browse",
     commandNames: [
-      "browseLinks",
+      "browseLinksInForeground",
       "browseLinksInBackground",
-      "browseMedia",
+      "browseMediaInForeground",
       "browseMediaInBackground",
     ],
   },
