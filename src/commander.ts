@@ -5,8 +5,8 @@ import {
   browseMediaInBackground,
   deleteTweet,
   downloadMedia,
-  togglePinTweet,
   selectAuthor,
+  togglePinTweet,
 } from "./twitter";
 
 const commandFunctionByName = {
@@ -16,8 +16,8 @@ const commandFunctionByName = {
   browseMediaInBackground,
   deleteTweet,
   downloadMedia,
-  togglePinTweet,
   selectAuthor,
+  togglePinTweet,
 } as { [key: string]: Function };
 
 export function runCommands(commandNames: string[]) {
