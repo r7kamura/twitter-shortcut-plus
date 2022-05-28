@@ -26,6 +26,11 @@ const commands: Array<Command> = [
     name: "browseMediaInBackground",
   },
   {
+    default: "alt+delete",
+    description: "Delete tweet",
+    name: "deleteTweet",
+  },
+  {
     default: "w",
     description: "Download media",
     name: "downloadMedia",

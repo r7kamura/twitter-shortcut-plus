@@ -19,6 +19,7 @@ Browser extension to add more keyboard shortcuts to [twitter.com](https://twitte
 
 ### Others
 
+- Delete tweet (default: <kbd>alt+delete</kbd>)
 - Download media (default: <kbd>w</kbd>)
 - Toggle pin tweet (default: <kbd>e</kbd>)
 

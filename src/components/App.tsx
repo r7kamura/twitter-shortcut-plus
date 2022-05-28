@@ -74,7 +74,7 @@ export default function App() {
           onCommandKeydown={onCommandKeydown}
         />
         <CommandsSection
-          commandNames={["downloadMedia", "togglePinTweet"]}
+          commandNames={["deleteTweet", "downloadMedia", "togglePinTweet"]}
           category="Others"
           keybindings={keybindings}
           onCommandKeydown={onCommandKeydown}
