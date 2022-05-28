@@ -7,7 +7,11 @@ chrome.runtime.sendMessage(
   ({ keybindings }) => {
     const keyMap = generateKeyMap(keybindings);
     document.addEventListener("keydown", (event) => {
-      if (document.activeElement?.getAttribute("contenteditable") == "true") {
+      if (
+        document.activeElement?.getAttribute("contenteditable") == "true" ||
+        document.activeElement?.tagName == "INPUT" ||
+        document.activeElement?.tagName == "TEXTAREA"
+      ) {
         return;
       }
 
