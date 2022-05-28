@@ -92,11 +92,15 @@ function findLinkUrls() {
     }
     return result;
   }, [] as string[]);
-  return Array.from(new Set(urls));
+  return unique(urls);
 }
 
 function findMediaUrls() {
   return [...findImageUrlsFromDetailView(), ...findImageUrlsFromListView()].map(
     convertRawImageUrlToOriginalImageUrl
   );
+}
+
+function unique(array: string[]) {
+  return Array.from(new Set(array));
 }
