@@ -7,6 +7,7 @@ import {
   downloadMedia,
   quote,
   selectAuthor,
+  selectQuotedTweet,
   togglePinTweet,
 } from "./twitter";
 
@@ -19,6 +20,7 @@ const commandFunctionByName = {
   downloadMedia,
   quote,
   selectAuthor,
+  selectQuotedTweet,
   togglePinTweet,
 } as { [key: string]: Function };
 

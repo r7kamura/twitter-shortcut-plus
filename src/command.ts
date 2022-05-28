@@ -50,6 +50,11 @@ const commands: Array<Command> = [
     description: "Select author",
     name: "selectAuthor",
   },
+  {
+    default: "alt+k",
+    description: "Select quoted tweet",
+    name: "selectQuotedTweet",
+  },
 ];
 
 export { commands };

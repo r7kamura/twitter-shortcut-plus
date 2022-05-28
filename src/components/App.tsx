@@ -10,6 +10,26 @@ const commandByName = commands.reduce((result, command) => {
 
 const keybindingsStorageKey = "keybindings";
 
+const categories = [
+  {
+    categoryName: "Browse",
+    commandNames: [
+      "browseLinks",
+      "browseLinksInBackground",
+      "browseMedia",
+      "browseMediaInBackground",
+    ],
+  },
+  {
+    categoryName: "Select",
+    commandNames: ["selectAuthor, selectQuotedTweet"],
+  },
+  {
+    categoryName: "Others",
+    commandNames: ["deleteTweet", "downloadMedia", "quote", "togglePinTweet"],
+  },
+];
+
 export default function App() {
   const [keybindings, setKeybindings] = useState([]);
 
@@ -56,34 +76,18 @@ export default function App() {
         <h1 className="font-bold">Twitter Shortcut Plus</h1>
       </header>
       <main>
-        <CommandsSection
-          commandNames={[
-            "browseLinks",
-            "browseLinksInBackground",
-            "browseMedia",
-            "browseMediaInBackground",
-          ]}
-          category="Browse"
-          keybindings={keybindings}
-          onCommandKeydown={onCommandKeydown}
-        />
-        <CommandsSection
-          commandNames={["selectAuthor"]}
-          category="Select"
-          keybindings={keybindings}
-          onCommandKeydown={onCommandKeydown}
-        />
-        <CommandsSection
-          commandNames={[
-            "deleteTweet",
-            "downloadMedia",
-            "quote",
-            "togglePinTweet",
-          ]}
-          category="Others"
-          keybindings={keybindings}
-          onCommandKeydown={onCommandKeydown}
-        />
+        <div>
+          {categories.map(({ categoryName, commandNames }) => {
+            return (
+              <CommandsSection
+                categoryName={categoryName}
+                commandNames={commandNames}
+                keybindings={keybindings}
+                onCommandKeydown={onCommandKeydown}
+              />
+            );
+          })}
+        </div>
         <section className="max-w-xl mx-auto p-4 rounded-xl shadow-lg bg-white mt-8">
           <div className="flex flex-row items-center py-2">
             <div className="basis-2/3">
@@ -109,19 +113,19 @@ export default function App() {
 
 function CommandsSection({
   commandNames,
-  category,
+  categoryName,
   keybindings,
   onCommandKeydown,
 }: {
   commandNames: string[];
-  category: string;
+  categoryName: string;
   keybindings: Keybinding[];
   onCommandKeydown: Function;
 }) {
   return (
     <section className="max-w-xl mx-auto p-4 rounded-xl shadow-lg bg-white mb-8">
       <div className="divide-y">
-        <h2 className="font-bold pb-4">{category}</h2>
+        <h2 className="font-bold pb-4">{categoryName}</h2>
         {commandNames.map((commandName) => {
           const command = commandByName[commandName];
           return (

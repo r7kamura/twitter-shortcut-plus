@@ -61,6 +61,11 @@ export function selectAuthor() {
   findAuthorLink()?.click();
 }
 
+export function selectQuotedTweet() {
+  console.log(findQuotedTweet());
+  findQuotedTweet()?.click();
+}
+
 export function togglePinTweet() {
   const menuButtonElement = findMenuButtonElement();
   if (!menuButtonElement) {
@@ -189,6 +194,12 @@ function findPinIconElement() {
 function findPinMenuItemElement() {
   return findPinIconElement()?.closest(
     'div[role="menuitem"]'
+  ) as HTMLElement | null;
+}
+
+function findQuotedTweet() {
+  return findActiveArticle()?.querySelector(
+    'div[role="link"]'
   ) as HTMLElement | null;
 }
 

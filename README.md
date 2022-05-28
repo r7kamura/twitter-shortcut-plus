@@ -16,6 +16,7 @@ Browser extension to add more keyboard shortcuts to [twitter.com](https://twitte
 ### Select
 
 - Select author (default: <kbd>alt+p</kbd>)
+- Select quoted tweet (default: <kbd>alt+k</kbd>)
 
 ### Others
 
