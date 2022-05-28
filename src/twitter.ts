@@ -52,6 +52,11 @@ export function downloadMedia() {
   }
 }
 
+export function quote() {
+  findRetweetButtonElement()?.click();
+  findQuoteMenuItemElement()?.click();
+}
+
 export function selectAuthor() {
   findAuthorLink()?.click();
 }
@@ -102,8 +107,14 @@ function download(urls: Array<string>) {
   chrome.runtime.sendMessage({ type: "download", payload: { urls } });
 }
 
+function findActiveArticle() {
+  return focusingTweetInDetailView()
+    ? document.activeElement?.closest("article")
+    : document.activeElement;
+}
+
 function findAuthorLink() {
-  return document.activeElement?.querySelector(
+  return findActiveElement()?.querySelector(
     'a[role="link"][tabindex="-1"]'
   ) as HTMLElement | null;
 }
@@ -139,9 +150,8 @@ function findImageUrlsFromOptionalArticleElement(
 
 function findLinkUrls() {
   const urls = Array.from(
-    document.activeElement?.querySelectorAll(
-      'a[role="link"][target="_blank"]'
-    ) || []
+    findActiveElement()?.querySelectorAll('a[role="link"][target="_blank"]') ||
+      []
   ).map((element) => {
     return element.getAttribute("href");
   });
@@ -150,9 +160,7 @@ function findLinkUrls() {
 
 function findImageUrls() {
   const imageUrls = findImageUrlsFromOptionalArticleElement(
-    focusingTweetInDetailView()
-      ? document.activeElement?.closest("article")
-      : document.activeElement
+    findActiveArticle()
   );
   return imageUrls.map(convertRawImageUrlToOriginalImageUrl);
 }
@@ -167,7 +175,7 @@ function findMediaUrls() {
 }
 
 function findMenuButtonElement() {
-  return document.activeElement?.querySelector(
+  return findActiveElement()?.querySelector(
     'div[aria-haspopup="menu"]'
   ) as HTMLElement | null;
 }
@@ -184,16 +192,30 @@ function findPinMenuItemElement() {
   ) as HTMLElement | null;
 }
 
+function findQuoteIconElement() {
+  return document.querySelector(
+    'div[role="menu"] path[d="M22.132 7.653c0-.6-.234-1.166-.66-1.59l-3.535-3.536c-.85-.85-2.333-.85-3.182 0L3.417 13.865c-.323.323-.538.732-.63 1.25l-.534 5.816c-.02.223.06.442.217.6.14.142.332.22.53.22.023 0 .046 0 .068-.003l5.884-.544c.45-.082.86-.297 1.184-.62l11.337-11.34c.425-.424.66-.99.66-1.59zm-17.954 8.69l3.476 3.476-3.825.35.348-3.826zm5.628 2.447c-.282.283-.777.284-1.06 0L5.21 15.255c-.292-.292-.292-.77 0-1.06l8.398-8.398 4.596 4.596-8.398 8.397zM20.413 8.184l-1.15 1.15-4.595-4.597 1.15-1.15c.14-.14.33-.22.53-.22s.388.08.53.22l3.535 3.536c.142.142.22.33.22.53s-.08.39-.22.53z"]'
+  );
+}
+
+function findQuoteMenuItemElement() {
+  return findQuoteIconElement()?.closest(
+    'a[role="menuitem"]'
+  ) as HTMLElement | null;
+}
+
+function findRetweetButtonElement() {
+  return findActiveArticle()?.querySelector(
+    'div[data-testid="retweet"]'
+  ) as HTMLElement | null;
+}
+
 function focusingTweetInDetailView() {
   return !!document.activeElement?.closest("article");
 }
 
 function findVideoUrl() {
-  return findVideoUrlFromOptionalArticleElement(
-    focusingTweetInDetailView()
-      ? document.activeElement?.closest("article")
-      : document.activeElement
-  );
+  return findVideoUrlFromOptionalArticleElement(findActiveArticle());
 }
 
 function findVideoUrlFromOptionalArticleElement(

@@ -36,6 +36,11 @@ const commands: Array<Command> = [
     name: "downloadMedia",
   },
   {
+    default: "q",
+    description: "Quote tweet",
+    name: "quote",
+  },
+  {
     default: "e",
     description: "Toggle pin tweet",
     name: "togglePinTweet",
