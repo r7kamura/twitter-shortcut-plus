@@ -124,16 +124,6 @@ function findDeleteMenuItemElement() {
   ) as HTMLElement | null;
 }
 
-function findImageUrlsFromListView() {
-  return findImageUrlsFromOptionalArticleElement(document.activeElement);
-}
-
-function findImageUrlsFromDetailView() {
-  return findImageUrlsFromOptionalArticleElement(
-    document.activeElement?.closest("article")
-  );
-}
-
 function findImageUrlsFromOptionalArticleElement(
   optionalArticleElement: Element | undefined | null
 ) {
@@ -158,11 +148,22 @@ function findLinkUrls() {
   return unique(compact(urls));
 }
 
-function findMediaUrls() {
-  const imageUrls = focusingTweetInDetailView()
-    ? findImageUrlsFromDetailView()
-    : findImageUrlsFromListView();
+function findImageUrls() {
+  const imageUrls = findImageUrlsFromOptionalArticleElement(
+    focusingTweetInDetailView()
+      ? document.activeElement?.closest("article")
+      : document.activeElement
+  );
   return imageUrls.map(convertRawImageUrlToOriginalImageUrl);
+}
+
+function findMediaUrls() {
+  const videoUrl = findVideoUrl();
+  if (videoUrl) {
+    return [videoUrl];
+  } else {
+    return findImageUrls();
+  }
 }
 
 function findMenuButtonElement() {
@@ -185,4 +186,21 @@ function findPinMenuItemElement() {
 
 function focusingTweetInDetailView() {
   return !!document.activeElement?.closest("article");
+}
+
+function findVideoUrl() {
+  return findVideoUrlFromOptionalArticleElement(
+    focusingTweetInDetailView()
+      ? document.activeElement?.closest("article")
+      : document.activeElement
+  );
+}
+
+function findVideoUrlFromOptionalArticleElement(
+  optionalArticleElement: Element | undefined | null
+) {
+  const url = optionalArticleElement
+    ?.querySelector("video")
+    ?.getAttribute("src");
+  return url && !url.startsWith("blob:") ? url : null;
 }
