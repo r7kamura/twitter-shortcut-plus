@@ -40,9 +40,19 @@ export function selectAuthor() {
 }
 
 export function togglePinTweet() {
-  findMenuButtonElement()?.click();
-  findPinMenuItemElement()?.click();
-  findActiveElement()?.click();
+  const menuButtonElement = findMenuButtonElement();
+  if (!menuButtonElement) {
+    return;
+  }
+
+  menuButtonElement.click();
+  const pinMenuItemElement = findPinMenuItemElement();
+  if (pinMenuItemElement) {
+    pinMenuItemElement.click();
+    findActiveElement()?.click();
+  } else {
+    menuButtonElement.click();
+  }
 }
 
 // https://pbs.twimg.com/media/x.jpg?format=jpg&name=360x360 to
