@@ -77,7 +77,7 @@ function findAuthorLink() {
 
 function findImageUrlsFromListView() {
   return Array.from(
-    document.activeElement?.querySelectorAll('img[alt="画像"]') || []
+    document.activeElement?.querySelectorAll('img[alt]:not([alt=""])') || []
   ).reduce((urls: string[], imageElement) => {
     const source = imageElement.getAttribute("src")!;
     urls = [...urls, source];
