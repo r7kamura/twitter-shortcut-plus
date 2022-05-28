@@ -1,3 +1,4 @@
+import { compact, unique } from "./array";
 import { openUrlInBackground, openUrlInForeground } from "./tab";
 
 export function browseLinks() {
@@ -124,20 +125,26 @@ function findDeleteMenuItemElement() {
 }
 
 function findImageUrlsFromListView() {
-  return Array.from(
-    document.activeElement?.querySelectorAll(
-      'img[alt]:not([alt=""])[draggable="true"]'
-    ) || []
-  ).reduce((urls: string[], imageElement) => {
-    const source = imageElement.getAttribute("src")!;
-    urls = [...urls, source];
-    return urls;
-  }, []);
+  return findImageUrlsFromOptionalArticleElement(document.activeElement);
 }
 
-// TODO
 function findImageUrlsFromDetailView() {
-  return [];
+  return findImageUrlsFromOptionalArticleElement(
+    document.activeElement?.closest("article")
+  );
+}
+
+function findImageUrlsFromOptionalArticleElement(
+  optionalArticleElement: Element | undefined | null
+) {
+  const urls = Array.from(
+    optionalArticleElement?.querySelectorAll(
+      'img[alt]:not([alt=""])[draggable="true"]'
+    ) || []
+  ).map((element) => {
+    return element.getAttribute("src");
+  });
+  return compact(urls);
 }
 
 function findLinkUrls() {
@@ -145,20 +152,17 @@ function findLinkUrls() {
     document.activeElement?.querySelectorAll(
       'a[role="link"][target="_blank"]'
     ) || []
-  ).reduce((result, element) => {
-    const url = element.getAttribute("href");
-    if (url) {
-      result = [...result, url];
-    }
-    return result;
-  }, [] as string[]);
-  return unique(urls);
+  ).map((element) => {
+    return element.getAttribute("href");
+  });
+  return unique(compact(urls));
 }
 
 function findMediaUrls() {
-  return [...findImageUrlsFromDetailView(), ...findImageUrlsFromListView()].map(
-    convertRawImageUrlToOriginalImageUrl
-  );
+  const imageUrls = focusingTweetInDetailView()
+    ? findImageUrlsFromDetailView()
+    : findImageUrlsFromListView();
+  return imageUrls.map(convertRawImageUrlToOriginalImageUrl);
 }
 
 function findMenuButtonElement() {
@@ -179,6 +183,6 @@ function findPinMenuItemElement() {
   ) as HTMLElement | null;
 }
 
-function unique(array: string[]) {
-  return Array.from(new Set(array));
+function focusingTweetInDetailView() {
+  return !!document.activeElement?.closest("article");
 }
