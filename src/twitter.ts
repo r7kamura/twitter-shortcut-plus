@@ -35,6 +35,10 @@ export function downloadMedia() {
   }
 }
 
+export function selectAuthor() {
+  findAuthorLink()?.click();
+}
+
 // https://pbs.twimg.com/media/x.jpg?format=jpg&name=360x360 to
 // https://pbs.twimg.com/media/x.jpg?name=orig
 //
@@ -63,6 +67,12 @@ function convertRawImageUrlToOriginalImageUrl(url: string) {
 
 function download(urls: Array<string>) {
   chrome.runtime.sendMessage({ type: "download", payload: { urls } });
+}
+
+function findAuthorLink() {
+  return document.activeElement?.querySelector(
+    'a[role="link"][tabindex="-1"]'
+  ) as HTMLElement | null;
 }
 
 function findImageUrlsFromListView() {

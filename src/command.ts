@@ -30,6 +30,11 @@ const commands: Array<Command> = [
     description: "Download media",
     name: "downloadMedia",
   },
+  {
+    default: "alt+p",
+    description: "Select author",
+    name: "selectAuthor",
+  },
 ];
 
 export { commands };

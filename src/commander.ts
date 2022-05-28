@@ -4,6 +4,7 @@ import {
   browseMedia,
   browseMediaInBackground,
   downloadMedia,
+  selectAuthor,
 } from "./twitter";
 
 const commandFunctionByName = {
@@ -12,6 +13,7 @@ const commandFunctionByName = {
   browseMedia,
   browseMediaInBackground,
   downloadMedia,
+  selectAuthor,
 } as { [key: string]: Function };
 
 export function runCommands(commandNames: string[]) {

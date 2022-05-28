@@ -13,6 +13,10 @@ Browser extension to add more keyboard shortcuts to [twitter.com](https://twitte
 - Browse media (default: <kbd>alt+s</kbd>)
 - Browse media in background (default: <kbd>i</kbd>)
 
+### Select
+
+- Select author (default: <kbd>alt+p</kbd>)
+
 ### Others
 
 - Download media (default: <kbd>w</kbd>)

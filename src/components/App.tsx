@@ -68,6 +68,12 @@ export default function App() {
           onCommandKeydown={onCommandKeydown}
         />
         <CommandsSection
+          commandNames={["selectAuthor"]}
+          category="Select"
+          keybindings={keybindings}
+          onCommandKeydown={onCommandKeydown}
+        />
+        <CommandsSection
           commandNames={["downloadMedia"]}
           category="Others"
           keybindings={keybindings}
