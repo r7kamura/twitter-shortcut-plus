@@ -1,7 +1,7 @@
 {
   "name": "Twitter Shortcut Plus",
   "description": "Add more keyboard shortcuts on Twitter.",
-  "version": "0.2.2",
+  "version": "0.0.1",
   "manifest_version": 3,
   "icons": {
     "16": "images/icon16.png",
