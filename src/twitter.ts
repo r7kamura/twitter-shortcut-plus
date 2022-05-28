@@ -125,7 +125,9 @@ function findDeleteMenuItemElement() {
 
 function findImageUrlsFromListView() {
   return Array.from(
-    document.activeElement?.querySelectorAll('img[alt]:not([alt=""])') || []
+    document.activeElement?.querySelectorAll(
+      'img[alt]:not([alt=""])[draggable="true"]'
+    ) || []
   ).reduce((urls: string[], imageElement) => {
     const source = imageElement.getAttribute("src")!;
     urls = [...urls, source];
