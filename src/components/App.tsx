@@ -74,7 +74,7 @@ export default function App() {
           onCommandKeydown={onCommandKeydown}
         />
         <CommandsSection
-          commandNames={["downloadMedia"]}
+          commandNames={["downloadMedia", "togglePinTweet"]}
           category="Others"
           keybindings={keybindings}
           onCommandKeydown={onCommandKeydown}

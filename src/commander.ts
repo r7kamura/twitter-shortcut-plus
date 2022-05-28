@@ -4,6 +4,7 @@ import {
   browseMedia,
   browseMediaInBackground,
   downloadMedia,
+  togglePinTweet,
   selectAuthor,
 } from "./twitter";
 
@@ -13,6 +14,7 @@ const commandFunctionByName = {
   browseMedia,
   browseMediaInBackground,
   downloadMedia,
+  togglePinTweet,
   selectAuthor,
 } as { [key: string]: Function };
 

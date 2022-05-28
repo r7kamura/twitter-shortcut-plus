@@ -20,6 +20,7 @@ Browser extension to add more keyboard shortcuts to [twitter.com](https://twitte
 ### Others
 
 - Download media (default: <kbd>w</kbd>)
+- Toggle pin tweet (default: <kbd>e</kbd>)
 
 ## Related project
 
