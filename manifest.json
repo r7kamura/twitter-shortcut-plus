@@ -1,0 +1,31 @@
+{
+  "name": "TweetDeck Shortcut Plus",
+  "description": "Add more keyboard shortcuts on TweetDeck.",
+  "version": "0.2.2",
+  "manifest_version": 3,
+  "icons": {
+    "16": "images/icon16.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "images/icon16.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background.ts"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://tweetdeck.twitter.com/*"],
+      "js": ["src/main.ts"]
+    }
+  ],
+  "options_page": "options.html",
+  "permissions": ["downloads", "storage"]
+}
