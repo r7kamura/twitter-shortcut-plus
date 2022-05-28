@@ -15,6 +15,11 @@ const commands: Array<Command> = [
     description: "Browse media in background",
     name: "browseMediaInBackground",
   },
+  {
+    default: "w",
+    description: "Download media",
+    name: "downloadMedia",
+  },
 ];
 
 export { commands };

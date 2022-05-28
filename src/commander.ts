@@ -1,8 +1,9 @@
-import { browseMedia, browseMediaInBackground } from "./twitter";
+import { browseMedia, browseMediaInBackground, downloadMedia } from "./twitter";
 
 const commandFunctionByName = {
   browseMedia,
   browseMediaInBackground,
+  downloadMedia,
 } as { [key: string]: Function };
 
 export function runCommands(commandNames: string[]) {

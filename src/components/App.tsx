@@ -62,6 +62,12 @@ export default function App() {
           keybindings={keybindings}
           onCommandKeydown={onCommandKeydown}
         />
+        <CommandsSection
+          commandNames={["downloadMedia"]}
+          category="Others"
+          keybindings={keybindings}
+          onCommandKeydown={onCommandKeydown}
+        />
         <section className="max-w-xl mx-auto p-4 rounded-xl shadow-lg bg-white mt-8">
           <div className="flex flex-row items-center py-2">
             <div className="basis-2/3">

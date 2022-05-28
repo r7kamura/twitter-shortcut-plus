@@ -14,6 +14,13 @@ export function browseMediaInBackground() {
   });
 }
 
+export function downloadMedia() {
+  const urls = findMediaUrls();
+  if (urls.length > 0) {
+    download(urls);
+  }
+}
+
 // https://pbs.twimg.com/media/x.jpg?format=jpg&name=360x360 to
 // https://pbs.twimg.com/media/x.jpg?name=orig
 //
@@ -38,6 +45,10 @@ function convertRawImageUrlToOriginalImageUrl(url: string) {
   searchParams.set("name", "orig");
   urlObject.search = searchParams.toString();
   return urlObject.toString();
+}
+
+function download(urls: Array<string>) {
+  chrome.runtime.sendMessage({ type: "download", payload: { urls } });
 }
 
 function findImageUrlsFromListView() {
