@@ -22,7 +22,7 @@ const categories = [
   },
   {
     categoryName: "Select",
-    commandNames: ["selectAuthor, selectQuotedTweet"],
+    commandNames: ["selectAuthor", "selectQuotedTweet"],
   },
   {
     categoryName: "Others",
