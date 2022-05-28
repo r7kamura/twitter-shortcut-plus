@@ -51,53 +51,14 @@ export default function App() {
   }
 
   return (
-    <div className="text-base bg-slate-100 pb-16">
+    <div className="text-base pb-16">
       <header className="max-w-xl mx-auto p-4 py-8 text-lg">
         <h1 className="font-bold">Twitter Shortcut Plus</h1>
       </header>
       <main>
         <CommandsSection
-          commandNames={[
-            "browse",
-            "browseInBackground",
-            "browseAuthor",
-            "browseAuthorInBackground",
-            "browseLinks",
-            "browseLinksInBackground",
-            "browseMedia",
-            "browseMediaInBackground",
-          ]}
+          commandNames={["browseMedia", "browseMediaInBackground"]}
           category="Browse"
-          keybindings={keybindings}
-          onCommandKeydown={onCommandKeydown}
-        />
-        <CommandsSection
-          commandNames={[
-            "selectActivityUser",
-            "selectAuthor",
-            "selectLikes",
-            "selectRetweets",
-            "selectFirstHashTag",
-            "selectFirstImage",
-            "selectQuotedTweet",
-          ]}
-          category="Select"
-          keybindings={keybindings}
-          onCommandKeydown={onCommandKeydown}
-        />
-        <CommandsSection
-          commandNames={[
-            "addActivityUserColumn",
-            "addAuthorColumn",
-            "removeColumn",
-          ]}
-          category="Column"
-          keybindings={keybindings}
-          onCommandKeydown={onCommandKeydown}
-        />
-        <CommandsSection
-          commandNames={["deleteTweet", "downloadMedia", "quote"]}
-          category="Others"
           keybindings={keybindings}
           onCommandKeydown={onCommandKeydown}
         />
