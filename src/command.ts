@@ -6,22 +6,22 @@ export type Command = {
 
 const commands: Array<Command> = [
   {
-    default: "alt+l",
+    default: "alt+w",
     description: "Browse links in foreground",
     name: "browseLinksInForeground",
   },
   {
-    default: "u",
+    default: "w",
     description: "Browse links in background",
     name: "browseLinksInBackground",
   },
   {
-    default: "alt+s",
+    default: "alt+f",
     description: "Browse media in foreground",
     name: "browseMediaInForeground",
   },
   {
-    default: "i",
+    default: "f",
     description: "Browse media in background",
     name: "browseMediaInBackground",
   },
@@ -31,7 +31,7 @@ const commands: Array<Command> = [
     name: "deleteTweet",
   },
   {
-    default: "w",
+    default: "v",
     description: "Download media",
     name: "downloadMedia",
   },
@@ -41,17 +41,17 @@ const commands: Array<Command> = [
     name: "quote",
   },
   {
-    default: "e",
+    default: "z",
     description: "Toggle pin tweet",
     name: "togglePinTweet",
   },
   {
-    default: "alt+p",
+    default: "a",
     description: "Select author",
     name: "selectAuthor",
   },
   {
-    default: "alt+k",
+    default: "alt+q",
     description: "Select quoted tweet",
     name: "selectQuotedTweet",
   },
