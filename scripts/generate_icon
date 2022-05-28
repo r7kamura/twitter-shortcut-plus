@@ -9,7 +9,7 @@ convert \
   -gravity center \
   -font Helvetica \
   -pointsize "$((width / 4 * 3))" \
-  -background "#1A466F" \
+  -background "#3B99F6" \
   -fill "#FFFFFF" \
   -size "${width}x${height}" \
   "label:+" \
