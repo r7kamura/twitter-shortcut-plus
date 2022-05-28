@@ -114,7 +114,7 @@ function findActiveArticle() {
 }
 
 function findAuthorLink() {
-  return findActiveElement()?.querySelector(
+  return findActiveArticle()?.querySelector(
     'a[role="link"][tabindex="-1"]'
   ) as HTMLElement | null;
 }
@@ -150,7 +150,7 @@ function findImageUrlsFromOptionalArticleElement(
 
 function findLinkUrls() {
   const urls = Array.from(
-    findActiveElement()?.querySelectorAll('a[role="link"][target="_blank"]') ||
+    findActiveArticle()?.querySelectorAll('a[role="link"][target="_blank"]') ||
       []
   ).map((element) => {
     return element.getAttribute("href");
@@ -175,7 +175,7 @@ function findMediaUrls() {
 }
 
 function findMenuButtonElement() {
-  return findActiveElement()?.querySelector(
+  return findActiveArticle()?.querySelector(
     'div[aria-haspopup="menu"]'
   ) as HTMLElement | null;
 }
