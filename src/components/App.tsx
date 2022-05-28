@@ -57,7 +57,12 @@ export default function App() {
       </header>
       <main>
         <CommandsSection
-          commandNames={["browseMedia", "browseMediaInBackground"]}
+          commandNames={[
+            "browseLinks",
+            "browseLinksInBackground",
+            "browseMedia",
+            "browseMediaInBackground",
+          ]}
           category="Browse"
           keybindings={keybindings}
           onCommandKeydown={onCommandKeydown}

@@ -1,6 +1,14 @@
-import { browseMedia, browseMediaInBackground, downloadMedia } from "./twitter";
+import {
+  browseLinks,
+  browseLinksInBackground,
+  browseMedia,
+  browseMediaInBackground,
+  downloadMedia,
+} from "./twitter";
 
 const commandFunctionByName = {
+  browseLinks,
+  browseLinksInBackground,
   browseMedia,
   browseMediaInBackground,
   downloadMedia,

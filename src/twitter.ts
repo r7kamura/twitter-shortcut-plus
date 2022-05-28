@@ -1,5 +1,19 @@
 import { openUrlInBackground, openUrlInForeground } from "./tab";
 
+export function browseLinks() {
+  findLinkUrls()
+    .reverse()
+    .forEach((url) => {
+      openUrlInForeground(url);
+    });
+}
+
+export function browseLinksInBackground() {
+  findLinkUrls().forEach((url) => {
+    openUrlInBackground(url);
+  });
+}
+
 export function browseMedia() {
   findMediaUrls()
     .reverse()
@@ -64,6 +78,21 @@ function findImageUrlsFromListView() {
 // TODO
 function findImageUrlsFromDetailView() {
   return [];
+}
+
+function findLinkUrls() {
+  const urls = Array.from(
+    document.activeElement?.querySelectorAll(
+      'a[role="link"][target="_blank"]'
+    ) || []
+  ).reduce((result, element) => {
+    const url = element.getAttribute("href");
+    if (url) {
+      result = [...result, url];
+    }
+    return result;
+  }, [] as string[]);
+  return Array.from(new Set(urls));
 }
 
 function findMediaUrls() {

@@ -8,6 +8,8 @@ Browser extension to add more keyboard shortcuts to [twitter.com](https://twitte
 
 ### Browse
 
+- Browse links (default: <kbd>alt+l</kbd>)
+- Browse links in background (default: <kbd>u</kbd>)
 - Browse media (default: <kbd>alt+s</kbd>)
 - Browse media in background (default: <kbd>i</kbd>)
 
