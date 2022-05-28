@@ -20,7 +20,7 @@ import {
   selectFirstHashTag,
   selectFirstImage,
   selectQuotedTweet,
-} from "./tweetdeck";
+} from "./twitter";
 
 const commandFunctionByName = {
   addActivityUserColumn,
