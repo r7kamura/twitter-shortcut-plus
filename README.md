@@ -15,6 +15,6 @@ Browser extension to add more keyboard shortcuts to [twitter.com](https://twitte
 
 - Download media (default: <kbd>w</kbd>)
 
-## Related projects
+## Related project
 
 - <https://github.com/r7kamura/tweetdeck-shortcut-plus>
