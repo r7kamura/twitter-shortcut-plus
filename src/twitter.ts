@@ -113,9 +113,16 @@ function download(urls: Array<string>) {
 }
 
 function findActiveArticle() {
-  return focusingTweetInDetailView()
-    ? document.activeElement?.closest("article")
-    : document.activeElement;
+  if (document.activeElement?.tagName == "ARTICLE") {
+    return document.activeElement;
+  }
+
+  const optionalArticleElement = document.activeElement?.closest("article");
+  if (optionalArticleElement) {
+    return optionalArticleElement;
+  }
+
+  return document.querySelector("article");
 }
 
 function findAuthorLink() {
@@ -219,10 +226,6 @@ function findRetweetButtonElement() {
   return findActiveArticle()?.querySelector(
     'div[data-testid="retweet"]'
   ) as HTMLElement | null;
-}
-
-function focusingTweetInDetailView() {
-  return !!document.activeElement?.closest("article");
 }
 
 function findVideoUrl() {
