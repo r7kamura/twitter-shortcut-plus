@@ -25,6 +25,12 @@ Browser extension to add more keyboard shortcuts to [twitter.com](https://twitte
 - Quote tweet (default: <kbd>q</kbd>)
 - Toggle pin tweet (default: <kbd>z</kbd>)
 
+## Configuration
+
+Customize the keyboard shortcuts from options page.
+
+![](images/screenshot.png)
+
 ## Related project
 
 - <https://github.com/r7kamura/tweetdeck-shortcut-plus>
