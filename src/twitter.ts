@@ -161,13 +161,29 @@ function findImageUrlsFromOptionalArticleElement(
 }
 
 function findLinkUrls() {
+  return unique([...findLinkUrlsFromCard(), ...findLinkUrlsFromTweetText()]);
+}
+
+function findLinkUrlsFromCard() {
   const urls = Array.from(
-    findActiveArticle()?.querySelectorAll('a[role="link"][target="_blank"]') ||
-      []
+    findActiveArticle()?.querySelectorAll(
+      'div[data-testid="card.wrapper"] a[role="link"][target="_blank"]'
+    ) || []
   ).map((element) => {
     return element.getAttribute("href");
   });
-  return unique(compact(urls));
+  return compact(urls);
+}
+
+function findLinkUrlsFromTweetText() {
+  const urls = Array.from(
+    findActiveArticle()?.querySelectorAll(
+      'div[data-testid="tweetText"] a[role="link"][target="_blank"]'
+    ) || []
+  ).map((element) => {
+    return element.getAttribute("href");
+  });
+  return compact(urls);
 }
 
 function findImageUrls() {
