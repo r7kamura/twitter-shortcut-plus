@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.1.1 - 2022-05-31
+
 ### Fixed
 
 - Fix active item detection logic.
